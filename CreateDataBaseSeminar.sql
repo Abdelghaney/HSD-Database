@@ -21,9 +21,6 @@ CREATE TABLE Seminar (
 
 -- ------------------------------------------------------------
 -- Customer
--- CusPassword is VARCHAR(256) so it can hold a hashed password.
--- Password rules (8-15 characters) must be validated in the
--- application BEFORE hashing, not as a CHECK on the stored value.
 -- ------------------------------------------------------------
 CREATE TABLE Customer (
     CustomerID     INT          NOT NULL AUTO_INCREMENT,
@@ -58,7 +55,6 @@ CREATE TABLE Seminar_Customer (
 
 -- ------------------------------------------------------------
 -- Prodact (product catalogue)
--- Quantity may be 0 so an out-of-stock product can still exist.
 -- ------------------------------------------------------------
 CREATE TABLE Prodact (
     ProductID           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -70,7 +66,6 @@ CREATE TABLE Prodact (
 
 -- ------------------------------------------------------------
 -- Invoice (must be created BEFORE Line_item)
--- Money columns are DECIMAL(10,2); Tax may be 0 for tax-free invoices.
 -- ------------------------------------------------------------
 CREATE TABLE Invoice (
     InvoiceNumber  INT           NOT NULL PRIMARY KEY,
